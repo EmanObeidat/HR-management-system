@@ -1,0 +1,25 @@
+header{
+    width: 100%;
+    height: auto;
+    background-color: antiquewhite;
+}
+header ul{
+    display: flex;
+    justify-content: space-around;
+}
+footer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-self: flex-end;
+    margin-top: 45%;
+    justify-content:space-between ;    
+    background-color: antiquewhite;
+
+}
+footer section{
+    display: flex;
+    margin-top: 1%;
+}
+
+
