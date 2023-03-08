@@ -39,22 +39,11 @@ for (let i = 0; i < arrayOfEmployee.length; i++) {
 
 }
 
-// employee1.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-// employee2.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-// employee3.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-// employee4.salary=Math.floor(Math.random() * (1500 - 1000) ) + 1000;
-// employee5.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-// employee6.salary=Math.floor(Math.random() * (1000 - 500) ) + 500;
-// employee7.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-
-
-/////done/////
 Employee.prototype.render= function () {
   document.write(`<p>FullName is ${this.fullName} and The Salary is ${this.salary}</p>`);
 }
-const array2 = [employee1, employee2, employee3, employee4, employee5, employee6, employee7];
-for (let x = 0; x < array2.length; x++) {
-  array2[x].render();
+for (let x = 0; x < arrayOfEmployee.length; x++) {
+  arrayOfEmployee[x].render();
 }
 
 
