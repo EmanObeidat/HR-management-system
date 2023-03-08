@@ -17,34 +17,45 @@ let employee5 = new Employee(1004, "Omar Ziad", "Development", "Senior", 0,"Imag
 let employee6 = new Employee(1005, "Rana Saleh", "Development", "Junior", 0,"imageURL6")
 let employee7 = new Employee(1006, "Hadi Ahamd", "Finance", "Senior", 0,"imageURL7")
 console.log(arrayOfEmployee);
-//  Employee.prototype.SalaryValue=function()
-//  {
-//   if(level=="senior")
-//   { return Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-//   }
-//   else if(level=="Mid-Senior")
-//   {
-//     return Math.floor(Math.random() * (1500 - 1000) ) + 1000;
-//   }
-//   else
-//   {
-//     return Math.floor(Math.random() * (1000 - 500) ) + 500;
-//   }
-//  }
-//  employee1.SalaryValue()
+ Employee.prototype.SalaryValue=function()
+ {
+  if(this.level=="senior")
+  { 
+     let randNum=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
+     return this.salary=randNum-(randNum*0.075)
 
-employee1.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-employee2.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-employee3.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-employee4.salary=Math.floor(Math.random() * (1500 - 1000) ) + 1000;
-employee5.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
-employee6.salary=Math.floor(Math.random() * (1000 - 500) ) + 500;
-employee7.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
+  }
+  else if(this.level=="Mid-Senior")
+  {
+    let randNum= Math.floor(Math.random() * (1500 - 1000) ) + 1000;
+    return this.salary=randNum-(randNum*0.075)
+
+  }
+  else
+  {
+    let randNum= Math.floor(Math.random() * (1000 - 500) ) + 500;
+    return this.salary=randNum-(randNum*0.075)
+
+  }
+ }
+for(let i=0;i<arrayOfEmployee.length;i++)
+{
+    arrayOfEmployee[i].SalaryValue();
+    
+}
+
+// employee1.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
+// employee2.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
+// employee3.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
+// employee4.salary=Math.floor(Math.random() * (1500 - 1000) ) + 1000;
+// employee5.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
+// employee6.salary=Math.floor(Math.random() * (1000 - 500) ) + 500;
+// employee7.salary=Math.floor(Math.random() * (2000 - 1500) ) + 1500;
 
 
  /////done/////
 Employee.prototype.render=function(){
-document.write(`<h3>FullName is ${this.fullName} and The Salary is ${this.salary}</h3>` )}
+document.write(`<p>FullName is ${this.fullName} and The Salary is ${this.salary}</p>` )}
 
 employee1.render();
 employee2.render();
@@ -54,25 +65,3 @@ employee5.render();
 employee6.render();
 employee7.render();
 
-// Employee.prototype.employeeLevel=function(level){
-//   let min;
-//   let max;
-//     if(level=="senior")
-//     { min=1500;
-//       max=200;
-//     }
-//     else if(level=="Mid-Senior")
-//     {
-//       min=1000;
-//       max=1500;
-//     }
-//     else
-//     {
-//       min=500;
-//       max=1000;
-//     }
-//    }
-//  Employee.prototype.salaryCal=function(min,max){
-// this.salary=Math.floor(Math.random() * (max - min) ) + min;
-// return this.salary;
-// }
