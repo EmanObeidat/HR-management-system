@@ -25,10 +25,10 @@
     <main>
        <section id="sec1">
          <form id="form1">
-        <label for="fname">full name</label>
+        <label for="fname">fullName</label>
         <input type="text" id="fname" value="" > <br>
         <label for="dep">Department</label>
-        <select name="select" onchange="selectedSubjectName()" id="dep" form="carform">
+        <select name="select" id="dep" form="carform">
             <option value="select">select</option>
             <option value="Adminstration">Adminstration</option>
             <option value="Marketing">Marketing</option>
@@ -36,7 +36,7 @@
             <option value="Finance">Finance</option>
           </select><br>
         <label for="lev">Level</label>
-        <select name="select" onchange="levSelectValue()" id="lev" form="carform">
+        <select name="select"id="lev" form="carform" >
             <option value="select">select</option>
             <option value="senior">senior</option>
             <option value="Mid-senior">Mid-senior</option>
@@ -44,16 +44,15 @@
         </select><br>
         <label for="imgURL">ImageURL</label>
         <input type="text" id="imgURL" value=""><br>
-        <input id="sub" type="submit" value="submit">
-        
-
+        <input id="sub" type="submit" value="submit">  
       </form></section>  
       <section id="section1"></section>
+      <div></div>
 
+      <section id="section3"></section>
       <section>
           <script src="./app.js"></script>
         </section>
-
 
     </main>
 

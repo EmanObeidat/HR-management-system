@@ -41,7 +41,7 @@ for (let i = 0; i < arrayOfEmployee.length; i++) {
 //DOM
 let sectonOne=document.getElementById("section1");//make section inside html and give it id then call it here
 Employee.prototype.render= function () {
-  let imageOfEmployee=document.createElement('img'); //create image
+  let imageOfEmployee=document.createElement("img"); //create image
   imageOfEmployee.src=this.imageUrl;
   sectonOne.appendChild(imageOfEmployee);//add image to section one
   let name1=document.createElement('h3');//create new element called h3el and give it the same id of section created in main html
@@ -73,28 +73,34 @@ let form1=document.getElementById("form1");
 form1.addEventListener("submit",myFormData);
 
 
-//form's answers
-function myFormData(preventref)
-{preventref.preventDefault();
-  alert("submitted successfully");
+//form's answers appear on homePage
+function myFormData(event)
+{
+  event.preventDefault();
+  console.log(event);
+
+  alert("form submitted successfully");
+
   form1.style.color="rgb(62, 134, 92)"
-  let value1=preventref.target.fname.value;//save the answers of box
-  let value4=preventref.target.imgURL.value;
-  arrayOfAnswers.push(value1,value4);
-}
-function selectedSubjectName() {
-  var subjectIdNode = document.getElementById('dep');//save the answers of select
-  var value =subjectIdNode.options[subjectIdNode.selectedIndex].text;
-  arrayOfAnswers.push(value);
-}
-function levSelectValue()
-{  var LevelSelected = document.getElementById('lev');
-var valueOfLevel=LevelSelected.options[LevelSelected.selectedIndex].text;
-arrayOfAnswers.push(valueOfLevel);
-}
-console.log(arrayOfAnswers);
 
+  let fullname=(event.target.fname.value);
+  let Department=(document.getElementById("dep").value);
+  let level=(document.getElementById("lev").value);
+  let imageUrl1=(document.getElementById("imgURL").value);
+  arrayOfAnswers.push(fullname,Department,level,imageUrl1);
+  console.log(arrayOfAnswers);
 
+let formObj=new Employee(uniqueId(),fullname, Department, level, imageUrl1);
+formObj.render();
+let card=document.createElement("div");
+
+}
+
+function uniqueId()
+{
+  return parseInt(Math.ceil(Math.random()* Date.now()).toPrecision(4).toString().replace("."," "));//create uniqueId
+}
+// uniqueId();
 
 //style JS
 sectonOne.style.backgroundColor="#9DC08B";
