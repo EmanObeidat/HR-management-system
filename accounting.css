@@ -1,0 +1,20 @@
+header{
+    text-align:center;
+    background-color: brown;
+}
+body{
+    background-color: burlywood;
+}
+#Tb{
+
+background-color: brown;
+width: 100px;
+height: 100px;
+}
+main{
+display: flex;
+justify-content: center;
+}
+footer{
+    background-color: brown;
+}
