@@ -113,3 +113,33 @@ form1.style.border = "2px solid white";
 
 
 
+//local storage
+function renderAll() {
+  for (let i = 0; i < arrayOfEmployee.length; i++) {
+    arrayOfEmployee[i].render();
+    // arrayOfEmployee[i].renderTable()
+  }
+}
+
+//1.save data into localstorage
+function saveData(data) {
+  let stringOb = JSON.stringify(data);
+  localStorage.setItem('info', stringOb);
+}
+//2.get data from ls
+function getData() {
+  let getInfo = localStorage.getItem('info');
+  console.log(getInfo);
+  let ObjArr = JSON.parse(getInfo); //take the array that i git from LS and convert it to array of obj
+  console.log(ObjArr);
+  //reinstantiation of new instances
+  if (ObjArr != null) {
+    for (let i = 0; i < ObjArr.length; i++)//render all information iside the array
+    {
+      new Employee(ObjArr[i].employeeId, ObjArr[i].fullName, ObjArr[i].department, ObjArr[i].level, ObjArr[i].imageUrl); //new object inside constructor to be able for render
+    }
+  }
+  ObjArr[i].renderAll();
+}
+getData();
+//3.call the render method
