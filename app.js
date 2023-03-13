@@ -1,21 +1,21 @@
 `use strict`
-function Employee(employeeId, fullName, department, level, salary, imageUrl) {
+function Employee(employeeId, fullName, department, level, imageUrl) {
   this.employeeId = employeeId;
   this.fullName = fullName;
   this.department = department;
   this.level = level;
-  this.salary = salary;
+  this.salary = 0;
   this.imageUrl = imageUrl;
   arrayOfEmployee.push(this);
 }
 const arrayOfEmployee = []
-let employee1 = new Employee(1000, "Gazi Samer", "Adminstration", "senior", 0, "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Ghazi.jpg?raw=true")
-let employee2 = new Employee(1001, "Lana Ali", "Finance", "Senior", 0,"https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Lana.jpg?raw=true")
-let employee3 = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior", 0, "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Tamara.jpg?raw=true")
-let employee4 = new Employee(1003, "Safi Walid", "Adminstration", "Mid-Senior", 0, "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Safi.jpg?raw=true")
-let employee5 = new Employee(1004, "Omar Ziad", "Development", "Senior", 0, "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Omar.jpg?raw=true")
-let employee6 = new Employee(1005, "Rana Saleh", "Development", "Junior", 0, "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Rana.jpg?raw=true")
-let employee7 = new Employee(1006, "Hadi Ahamd", "Finance", "Senior", 0, "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Hadi.jpg?raw=true")
+let employee1 = new Employee(1000, "Gazi Samer", "Adminstration", "senior", "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Ghazi.jpg?raw=true")
+let employee2 = new Employee(1001, "Lana Ali", "Finance", "Senior","https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Lana.jpg?raw=true")
+let employee3 = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior","https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Tamara.jpg?raw=true")
+let employee4 = new Employee(1003, "Safi Walid", "Adminstration", "Mid-Senior","https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Safi.jpg?raw=true")
+let employee5 = new Employee(1004, "Omar Ziad", "Development", "Senior","https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Omar.jpg?raw=true")
+let employee6 = new Employee(1005, "Rana Saleh", "Development", "Junior","https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Rana.jpg?raw=true")
+let employee7 = new Employee(1006, "Hadi Ahamd", "Finance", "Senior","https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Hadi.jpg?raw=true")
 console.log(arrayOfEmployee);
 Employee.prototype.SalaryValue = function () {
   if (this.level == "senior") {
@@ -41,6 +41,7 @@ for (let i = 0; i < arrayOfEmployee.length; i++) {
 //DOM
 let sectonOne=document.getElementById("section1");//make section inside html and give it id then call it here
 Employee.prototype.render= function () {
+  this.SalaryValue();
   let imageOfEmployee=document.createElement("img"); //create image
   imageOfEmployee.src=this.imageUrl;
   sectonOne.appendChild(imageOfEmployee);//add image to section one
@@ -59,6 +60,7 @@ Employee.prototype.render= function () {
   let SalaryVal=document.createElement('h4');
   SalaryVal.textContent=this.salary;
   sectonOne.appendChild(SalaryVal);
+  
   //style
   SalaryVal.style.border="1px solid white";
   SalaryVal.style.width="25%";
@@ -86,23 +88,29 @@ function myFormData(event)
   let fullname=(event.target.fname.value);
   let Department=(document.getElementById("dep").value);
   let level=(document.getElementById("lev").value);
-  let imageUrl1=(document.getElementById("imgURL").value);
-  arrayOfAnswers.push(fullname,Department,level,imageUrl1);
+  // let imageUrl1=(document.getElementById("imgURL").value);
+  let imageurl=event.target.imgURL.value;
+  console.log(fullname,Department,level,imageurl);
+  arrayOfAnswers.push(fullname,Department,level,imageurl);
   console.log(arrayOfAnswers);
 
-let formObj=new Employee(uniqueId(),fullname, Department, level, imageUrl1);
-formObj.render();
+let formObj=new Employee(uniqueId(),fullname, Department, level,imageurl);
 let card=document.createElement("div");
+formObj.render();
+saveData(arrayOfEmployee);
 
 }
 
 function uniqueId()
 {
-  return parseInt(Math.ceil(Math.random()* Date.now()).toPrecision(4).toString().replace("."," "));//create uniqueId
+  this.employeeId= parseInt(Math.ceil(Math.random()* Date.now()).toPrecision(4).toString().replace("."," "));//create uniqueId
+  return this.employeeId;
 }
 // uniqueId();
 
 //style JS
 sectonOne.style.backgroundColor="#9DC08B";
 sectonOne.style.border="2px solid white";
-form1.style.border="2px solid white"
+form1.style.border="2px solid white";
+
+
