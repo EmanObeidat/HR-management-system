@@ -133,7 +133,7 @@ function getData() {
   let ObjArr = JSON.parse(getInfo); //take the array that i git from LS and convert it to array of obj
   console.log(ObjArr);
   //reinstantiation of new instances
-  if (objArray != null) {
+  if (ObjArray != null) {
     for (let i = 0; i < ObjArr.length; i++)//render all information iside the array
     {
       new Employee(ObjArr[i].employeeId, ObjArr[i].fullName, ObjArr[i].department, ObjArr[i].level, ObjArr[i].imageUrl); //new object inside constructor to be able for render
