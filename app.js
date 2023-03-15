@@ -112,7 +112,6 @@ sectonOne.style.border = "2px solid white";
 form1.style.border = "2px solid white";
 
 
-
 //local storage
 function renderAll() {
   for (let i = 0; i < arrayOfEmployee.length; i++) {

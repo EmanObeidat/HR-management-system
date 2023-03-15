@@ -1,20 +1,33 @@
 header{
-    text-align:center;
-    background-color: brown;
+    height: 70px;
 }
 body{
-    background-color: burlywood;
+    text-align: center;
+    background-image: url("https://i0.wp.com/www.csscodelab.com/wp-content/uploads/2020/03/css-background-image-linear-gradient.png?fit=1048%2C670&ssl=1");
 }
-#Tb{
+div{
+    display:inline-block;
+    height: 200px;
 
-background-color: brown;
-width: 100px;
-height: 100px;
 }
-main{
-display: flex;
-justify-content: center;
+table{
+    display: block;
+    border: 1px solid black;
+    background-color: antiquewhite;
+    
+
+   
+
 }
-footer{
-    background-color: brown;
+th{
+    border: 1px solid black;
+    width: 20%;
+    height: 50%;
+}
+tr,td{
+    border: 1px solid black;
+
+}
+h1{
+    color: beige;
 }
