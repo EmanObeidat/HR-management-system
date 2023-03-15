@@ -8,7 +8,7 @@ function Employee(employeeId, fullName, department, level, imageUrl) {
   this.imageUrl = imageUrl;
   arrayOfEmployee.push(this);
 }
-const arrayOfEmployee = []
+let arrayOfEmployee = []
 let employee1 = new Employee(1000, "Gazi Samer", "Adminstration", "senior", "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Ghazi.jpg?raw=true")
 let employee2 = new Employee(1001, "Lana Ali", "Finance", "Senior", "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Lana.jpg?raw=true")
 let employee3 = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior", "https://github.com/LTUC/amman-prep-d10/blob/main/Class-08/lab/assets/Tamara.jpg?raw=true")
@@ -133,7 +133,8 @@ function getData() {
   let ObjArr = JSON.parse(getInfo); //take the array that i git from LS and convert it to array of obj
   console.log(ObjArr);
   //reinstantiation of new instances
-  if (ObjArray != null) {
+  if (ObjArr != null) {
+    arrayOfEmployee=[];
     for (let i = 0; i < ObjArr.length; i++)//render all information iside the array
     {
       new Employee(ObjArr[i].employeeId, ObjArr[i].fullName, ObjArr[i].department, ObjArr[i].level, ObjArr[i].imageUrl); //new object inside constructor to be able for render
